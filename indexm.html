@@ -141,6 +141,7 @@
            const password = document.getElementById('password');
            const errorElement = document.getElementById('error');
            const errorElement1 = document.getElementById('error1');
+           const uspesnoobavestenje = document.getElementById('uspesno');
            
 
            forma.addEventListener('submit',(e) => {
@@ -200,7 +201,12 @@
              
             }
             
-            
+            if(username.value == 'marko' && password.value == 'djurdjevic') {
+                errorElement.innerText = " ";
+                errorElement1.innerText = " ";
+                uspesnoobavestenje.innerHTML = "BRAVO MARKO RETARDE"
+
+            }
            
         })
            
