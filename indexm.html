@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/70678d1158.js" crossorigin="anonymous"></script>
+        <title>Assignment 2 - Website Building</title>
+        <style>
+            #uspesno {
+            width: 460px;
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            font-weight: bold;
+            color: gold;
+            text-align: center;
+            padding-top: 20px;
+            opacity: 1;
+
+            
+           
+            }
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+  
+               
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+                
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+               
+                margin: 16px 0px;
+                
+            }
+            .kontrolaforme i {
+            opacity: 0;
+            }
+            
+            .kontrolaforme{
+              
+                position: relative;
+            }
+            .kontrolaforme i {
+                position: absolute;
+                bottom: 8px;
+                left: 435px;
+            }
+           
+            .kontrolaforme.success i.fa-check-circle {
+                opacity: 1;
+                
+                
+            }
+            .kontrolaforme.success i {
+                color: #2ecc71;;
+            }
+            .kontrolaforme.success input {
+                border: 1px solid #2ecc71;
+            }
+
+            .kontrolaforme.fail input {
+                border: 1px solid #e74c3c;
+            }
+            .kontrolaforme.fail i {
+                color: #e74c3c;
+            }
+            .kontrolaforme.fail i.fa-times {
+                opacity: 1;
+                
+            }
+
+            input:focus {
+  outline: none;
+}
+           
+            
+           
+            
+        </style>
+    </head>
+
+    <body>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <div id="login-container">
+
+            <form id="form">
+                <div class="input-item">
+                <div class="kontrolaforme">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                    <div id="sviinputiu">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                    <div id="error"></div>
+                </div>
+
+                <div class="input-item">
+                <div class='kontrolaforme'>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password">
+                    <div id="sviinputip">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+                    <div id="error1"></div>
+                </div>
+
+                <input type="submit" value="Login">
+            </form>
+           <div id="uspesno"></div>
+
+        </div>
+
+        <script>
+           const forma = document.getElementById('form');
+           const username = document.getElementById('username');
+           const password = document.getElementById('password');
+           const errorElement = document.getElementById('error');
+           const errorElement1 = document.getElementById('error1');
+           
+
+           forma.addEventListener('submit',(e) => {
+            
+              
+               
+            if(username.value === '' || username.value == null ) {
+             
+             errorElement.innerText = "please, enter username";
+             
+             username.parentElement.className = 'kontrolaforme fail';
+             e.preventDefault()
+             
+            }
+            
+            
+            if(username.value !== 'marko' && username.value !== ''){
+             
+             errorElement.innerText = "please, enter valid username";
+             username.parentElement.className = 'kontrolaforme fail';
+            
+             e.preventDefault()
+            }
+           
+            if(password.value === '' || password.value == null ) {
+            
+             errorElement1.innerText = "please, enter password";
+             password.parentElement.className = 'kontrolaforme fail';
+             e.preventDefault()
+             
+            }
+            if(password.value !== 'djurdjevic' && password.value !== ''){
+             
+             errorElement1.innerText = "please, enter valid password";
+             password.parentElement.className = 'kontrolaforme fail';
+             e.preventDefault()
+            }
+
+
+            if(username.value == 'marko') {
+                errorElement.innerText = " ";
+                username.parentElement.className = 'kontrolaforme success';
+             
+             
+             e.preventDefault()
+            
+             
+            }
+            if(password.value == 'djurdjevic') {
+                errorElement1.innerText = " ";
+                password.parentElement.className = 'kontrolaforme success';
+             
+            
+             
+             
+             e.preventDefault()
+             
+            }
+            
+            
+           
+        })
+           
+   
+           
+
+        </script>
+    </body>
+</html>
